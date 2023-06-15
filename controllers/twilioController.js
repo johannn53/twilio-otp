@@ -17,7 +17,6 @@ module.exports = {
           channel: "sms",
         });
 
-      console.log(otpResponse.to, otpResponse.channel, otpResponse.status);
       res.status(200).json({
         status: true,
         message: "Success send OTP",
@@ -28,7 +27,6 @@ module.exports = {
         },
       });
     } catch (error) {
-      console.log(error, "error");
       if (error.code === 60203) {
         return res.status(429).json({
           status: false,
@@ -56,7 +54,6 @@ module.exports = {
         },
       });
     } catch (error) {
-      console.log(error, "errorrr");
       res.status(500).json({
         status: false,
         message: "An error occurred during OTP verification",
